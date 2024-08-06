@@ -18,7 +18,7 @@ import {
 import { COURSE_STATUS } from "../../../../utils/constants"
 import ConfirmationModal from "../../../common/ConfirmationModal"
 
-export default function CoursesTable({ courses, setCourse }) {
+export default function CoursesTable({ courses, setCourses }) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { token } = useSelector((state) => state.auth)
@@ -31,7 +31,7 @@ export default function CoursesTable({ courses, setCourse }) {
     await deleteCourse({ courseId: courseId }, token)
     const result = await fetchInstructorCourses(token)
     if (result) {
-      setCourse(result)
+      setCourses(result)
     }
     setConfirmationModal(null)
     setLoading(false)
